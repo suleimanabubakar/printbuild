@@ -29,6 +29,9 @@ class SpareUpdate(GenericAPIView):
         transno = self.kwargs.get(self.lookup_url_kwarg)
         alltrans = Spare.objects.filter(transNo=transno)
         for eachtrans in alltrans:
-            eachtrans.status='printing'
+            eachtrans.status='deleted'
             eachtrans.save()
+        if alltrans:
+            Spareprint.objects.create(transno=transno)
+            
         return Response(status=status.HTTP_200_OK,data={"msg":"Successfully Updated"})

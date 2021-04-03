@@ -8,3 +8,4 @@ class SpareAdmin(admin.ModelAdmin):
     list_display_links = ('id','spare','transNo',)
 
 admin.site.register(Spare,SpareAdmin)
+admin.site.register(Spareprint)
