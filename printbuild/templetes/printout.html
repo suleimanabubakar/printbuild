@@ -6,7 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrintOut</title>
 </head>
+
+<style>
+    body{
+        margin: 0;
+        font-family: Courier;
+        font-size:11px;
+        font-weight:bolder;
+    }
+    .text-center{
+        text-align: center;
+        align-content: center;
+    }
+    .mt-5,.my-5{
+        margin-top: 3rem !important;
+    }
+    .mb-5,
+    .my-5 {
+    margin-bottom: 3rem !important;
+    }
+  
+    .mt-10{
+        margin-top: 4.5rem !important;
+    }
+
+    .my-3{
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+    }
+    .text-uppercase{
+        text-transform:uppercase
+    }
+
+    .t45{
+        width:45%
+    }
+    .t10{
+        width:10%
+    }
+    th,td{
+    word-break: break-all;
+    border-top: 1px solid black
+    }
+    tr{
+        text-align:left
+    }
+
+    table{
+        border-bottom: 1px solid black;
+        width:100%
+    }
+
+    .px-2 {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    }
+
+    .py-2,td,th {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    }
+</style>
+
+
+
 <body>
+
+
+        
     
+
+
+    
+
+<section class="my-3">
+    <div class="container" style="">
+        <div class="row">
+            <div class="col-md-3 mx-auto text-uppercase" style="font-size:11px;text-align: center;
+        align-content: center; font-family:'Courier';font-weight:bolder">
+                    CROWN PETROLEUM <br>
+                    SPARE TRANSACTIONS
+                </div>
+
+
+                    <div class="barcodeBlock my-3" style="text-align: center;
+        align-content: center;">
+                        {{ svg | safe }}
+
+                {% comment %} {% load barcode_tags %}
+                {% barcode_generate transno as barcode_svg %}
+                {{barcode_svg | safe}} {% endcomment %}
+
+                    </div>
+
+                <div class="foremenBlock my-3  py-2 px-2" style="border: 1px solid black">
+                    FOREMEN: ALI MUSTAFA<br>
+                    MECHANIC: KAZUNGU KATANA <br>
+                    2021-03-22
+                </div>
+
+    <table class="table table-sm">
+            <thead>
+               
+                <th class="t45" ><span class="">SPARE</span></th>
+                <th class="t45" ><span class="">QTY</span></th>
+            </thead>
+            <tbody>
+
+
+        {% for eachd in data %}
+            <tr>         
+                <td class="t45">{{ eachd.partname }} {{ eachd.spare }}</td>
+                <td class="t45">{{ eachd.qty }}</td>
+            </tr>
+        {% endfor %}
+
+            </tbody>
+    </table>
+
+        
+
+        
+         
+            <div class="row my-3">
+
+                <div class="col-md-6 mt-10" style="font-weight:bolder;width:40%">
+                    <hr style="background:black">
+                    ISSUED BY USSAMA SULEIMAN
+                </div>
+
+                
+
+               
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+
+
 </body>
 </html>
