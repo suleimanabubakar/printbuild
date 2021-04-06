@@ -35,3 +35,4 @@ class SpareUpdate(GenericAPIView):
             Spareprint.objects.create(transno=transno)
             
         return Response(status=status.HTTP_200_OK,data={"msg":"Successfully Updated"})
+
